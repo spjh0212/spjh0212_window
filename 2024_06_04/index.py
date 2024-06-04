@@ -3,7 +3,8 @@ import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
 import tools
-
+from tkinter import messagebox
+from tkinter.simpledialog import Dialog
 
 class Window(ThemedTk):
     def __init__(self,**kwargs):
@@ -26,18 +27,28 @@ class Window(ThemedTk):
         func_frame.pack(ipadx=100,ipady=30,padx=10,pady=10)
     
     def click1(self):
-        print('click1')
+        messagebox.showinfo("information","Infomative message")
     
     def click2(self):
-        print('click2')
-    
+        messagebox.showerror("Error","Error message")
+
     def click3(self):
-        print('click3')
+        messagebox.showwarning("Warning","Warning message")
     
     def click4(self):
-        print('click4')
+        ShowInfo(parent=self,title="這是Dialog")
 
+class ShowInfo(Dialog):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
     
+    def body(self, master):
+        text = tk.Text(self,height=8,font=('Helvetica',30),width=40)
+        text.pack(padx=10,pady=10)
+        text.insert(tk.INSERT,'kkura')
+        text.configure(state='disabled')
+        return None
+        
 def main():
     '''
     try:
