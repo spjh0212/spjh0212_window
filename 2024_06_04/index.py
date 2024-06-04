@@ -9,7 +9,14 @@ class Window(ThemedTk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.title('AQI顯示')
-        ttk.Button(self, text="Quit", command=self.destroy).pack()
+        #定義style的名稱
+        style = ttk.Style()
+        style.configure('Top.TFrame')
+        style.configure('Top.TLabel',font=('Helvetica',25,'bold'))
+
+        title_frame = ttk.Frame(self,style='Top.TFrame',borderwidth=2,relief='groove')
+        ttk.Label(title_frame,text='全台空氣品質指標(AQI)',style='Top.TLabel').pack(expand=True,fill='y')
+        title_frame.pack(ipadx=100,ipady=30,padx=10,pady=10)
 
 def main():
     '''
