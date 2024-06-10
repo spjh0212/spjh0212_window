@@ -24,7 +24,7 @@ class BMIDialog(simpledialog.Dialog):
             weight_diff = self.weight - ideal_weight
             suggestion += f" 建議減少至少 {weight_diff:.2f} 公斤。"
         
-        result = f"{self.name}，你的 BMI 是: {bmi:.2f}\n{suggestion}"
+        result = f"{self.name}你好:\n你的 BMI 是: {bmi:.2f}\n{suggestion}"
         
         label = tk.Label(master, text=result, wraplength=300)
         label.pack(padx=20, pady=20)
